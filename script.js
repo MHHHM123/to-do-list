@@ -40,17 +40,23 @@ let items = JSON.parse(localStorage.getItem("nicegood")) || [];
         readerlist();
     }
 
+    function edititem(index,newtext){
+        items[index]=newtext;
+        localStorage.setItem("nicegood",JSON.stringify(items));
+    }
     function readerlist(){
         output.innerHTML=items.map(function(thing,index){
             return `
             <div class="item-row">
-            <h3>${thing}</h3>
-            <button class ="delbut" onclick="deleteitem(${index})">-</button>
+            <h3 contenteditable="true" onblur="edititem(${index},this.innerText)">${thing}</h3>
+            <button class ="delbut" onclick="deleteitem(${index})" >-</button>
             </div>`;
+          
 
         }).join("");
     }
-            // <button class ="delete-btn" onclick="deleteitem(${index})">x</button>  
+        
+
     
 
     readerlist();
