@@ -28,6 +28,28 @@
             
 
         }
+        .comp-row{
+            display:flex;
+            align-items:center;
+            justify-content: space-between;
+            background:rgb(204, 121, 121);
+            padding:12px 18px;
+            margin:10px 0;
+            border-radius:15px;
+            box-shadow:0 3px 8px black;
+            width:300px;
+            transition:0.3s;
+
+        }
+        .comp-row:hover{
+            transform: translateX(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        .comp-row h3{
+            margin:0;
+            font-size:13px;
+            color:#333;
+        }
         .item-row {
             display: flex;
             align-items: center;
@@ -77,6 +99,18 @@
             border: 2px solid #D1D5DB;
             text-decoration-color: #333;
         }
+        #clearbutton{
+            color:#cc0000;
+            font-family: Arial;
+            border-radius: 16px;
+
+
+        }
+        #clearbutton:hover{
+            color:#4338CA;
+            transition:0.3s;
+        }
+
     </style>
     <script src="script.js" defer></script>
 </head>
@@ -89,6 +123,11 @@
         <h2>shopping list</h2>
 
         <p id="useroutput"></p>
+        <button id="clearbutton" onclick="clearall()">clear</button>
+        <button id ="clearbutton" onclick="togglecompleted()">Hide/Show</button>
+        <h2>completed tasks</h2>
+
+        <div id="completed-output"></div>
     </div>
 </body>
 
